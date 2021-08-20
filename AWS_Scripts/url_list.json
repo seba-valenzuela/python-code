@@ -1,0 +1,43 @@
+{
+  "Bass": [{
+    "Antes_-_Bass.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/bass/Antes_-_Bass.pdf"
+  }, {
+    "Dumpweed_-_Bass.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/bass/Dumpweed_-_Bass.pdf"
+  }, {
+    "Smoke_On_The_Water_-_Bass.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/bass/Smoke_On_The_Water_-_Bass.pdf"
+  }],
+  "Drum": [{
+    "Dumpweed_-_Drums.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/drum/Dumpweed_-_Drums.pdf"
+  }, {
+    "Smoke_On_The_Water_-_Drums.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/drum/Smoke_On_The_Water_-_Drums.pdf"
+  }, {
+    "Toxicity_-_Drums.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/drum/Toxicity_-_Drums.pdf"
+  }],
+  "Forms": [{
+    "Antes_-_FORM.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/forms/Antes_-_FORM.pdf"
+  }, {
+    "Dumpweed_-_FORM.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/forms/Dumpweed_-_FORM.pdf"
+  }, {
+    "Smoke_on_the_Water_-_FORM.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/forms/Smoke_on_the_Water_-_FORM.pdf"
+  }],
+  "Guitar": [{
+    "Antes_-_Guitar.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/guitar/Antes_-_Guitar.pdf"
+  }, {
+    "Do_it,_Try_it_-_Guitar.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/guitar/Do_it,_Try_it_-_Guitar.pdf"
+  }, {
+    "Dumpweed_-_Guitar.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/guitar/Dumpweed_-_Guitar.pdf"
+  }, {
+    "Smoke_on_the_Water_-_Guitar_version_2.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/guitar/Smoke_on_the_Water_-_Guitar_version_2.pdf"
+  }, {
+    "Smoke_on_the_Water_-_Guitar.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/guitar/Smoke_on_the_Water_-_Guitar.pdf"
+  }],
+  "Keys": [{
+    "Antes_-_Piano.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/keys/Antes_-_Piano.pdf"
+  }, {
+    "Do_It,_Try_It_-_Piano.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/keys/Do_It,_Try_It_-_Piano.pdf"
+  }, {
+    "Dumpweed_-_Piano.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/keys/Dumpweed_-_Piano.pdf"
+  }, {
+    "Smoke_on_the_water_-_Organ.pdf": "https://s3.amazonaws.com/sebavalenzuela.com/band-music/keys/Smoke_on_the_water_-_Organ.pdf"
+  }]
+}
