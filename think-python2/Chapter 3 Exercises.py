@@ -19,6 +19,7 @@ def do_four(func, arg):
     do_twice(func, arg)
 
 
+
 do_twice(print, 'spam') # 'print' gets converted into a function, with 'spam' as the arg
 
 print()
