@@ -79,3 +79,12 @@ def countdown(n):
 countdown(5)
 print()
 
+s = "Hello"
+
+def do_2(t, n):
+    if n <= 0:
+        exit
+    else:
+        t(n)
+
+do_2(countdown(3), 2)
