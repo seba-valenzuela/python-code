@@ -87,4 +87,13 @@ def do_2(t, n):
     else:
         t(n)
 
-do_2(countdown(3), 2)
+# do_2(countdown(3), 2)
+
+
+# Keyboard Input
+
+text = input("Type a number:\n")
+
+int(text) # You'll get an error if its a floating point number
+print(text)
+
