@@ -1,10 +1,12 @@
 # Floor Division and Modulus
 minutes = 135
-hours = minutes // 60
-print(hours,"\n")
+hours = minutes // 60 # this is the result with the decimal chopped off (it always rounds DOWN)
+print(hours,"\n")     # So "2.25" turns into "2"
 
-remainder = minutes % 60 #the Modulus operator returns the remainder
-print(remainder,"\n")         #you can also use the % operator to see if a number is dividible by another
+# There are 2 kinds of division: Floor Division and Floating-Point Division
+
+remainder = minutes % 60 # the Modulus operator returns the remainder
+print(remainder,"\n")    #  you can also use the % operator to see if a number is dividible by another
 
 x = 5
 y = 6
