@@ -96,7 +96,7 @@ recurse : n = 0, s = 5
 """ In order to use this recurse(n,s) properly, 
 only use positive integers for n """
 
-print("\n------------------------------------------\n")
+print("\n------------------------------------------\n") 
 
 
 # Exercise 5.5
