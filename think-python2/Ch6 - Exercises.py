@@ -14,3 +14,29 @@ def ack(m, n):
         return ack(m-1,ack(m,n-1))
 
 print(ack(3,4))
+
+
+# Exercise 6.3 - Palindrome checker
+# See file "Ch6 - palindrome.py"
+
+
+# Exercise 6.4 - "is a power of"
+
+def is_power(a,b):
+    """Determines if one number is a power of another number"""
+    if a**1==b or a**0==1: #Get the trivial cases out of the way first
+        return True
+    return (a%b==0) and (is_power(a/b,b))
+
+print("The answer to is_power is: "+str(is_power(1001,10)))
+
+
+# Exercise 6.5 - Greatest Common Divisor
+
+def gcd(a,b):
+    if b == 0:
+        return a
+    r = a%b
+    return gcd(b,r)
+
+print(str(gcd(36,12)))
