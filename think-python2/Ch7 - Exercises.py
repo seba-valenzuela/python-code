@@ -25,19 +25,41 @@ def collect_input():
 # Provide a parameter, "a", and return the square root of "a"
 def my_sqrt(a):
 
-    # data to be printed goes here
-    data = []
-
     # The initial guess for the square root will be HALF of 'a' (rounded down)
     x = int(a/2)
 
     while True:
-        print(x)
+        # print(x)
         y = (x + a/x) / 2
         if abs(y-x) < sys.float_info.epsilon: # epsilon is 0.0000001
-            break   # if the difference between y and x is less than epsilon, break
+            return x   # if the difference between y and x is less than epsilon, return x
         x = y
 
 # collect_input()
 
-my_sqrt(49)
+
+def test_square_root():
+    
+    # data to be printed goes here
+    data = collect_input()
+
+    # Using a FOR LOOP, extract elements of the data list one at a time to perform operations
+    for element in data:
+        
+        # instantiate variable holders
+        mysqrt_value = 0
+        mathSqrt_value = 0
+
+        # Move this to AFTER the calculations
+        diff = mysqrt_value - mathSqrt_value
+
+        # FIRST: print the 'a' value
+        # SECOND: print mysqrt(a) value
+        # THIRD: print math.sqrt(a) value
+        # FOURTH: print the difference between the previous 2
+        print ("{:<4} {:<14} {:<14} {:<14}".format(float(element),'mysqrt(a)','math.sqrt(a)',diff)) # FIRST: print the 'a' value as a floating point number
+
+    # scaffolding - REMOVE later
+    return data
+
+print(test_square_root())
