@@ -26,21 +26,19 @@ def collect_input():
 
 # Provide a parameter, "a", and return the square root of "a"
 def my_sqrt(a):
+    
+    if a == 1:
+       x = 1
+       return x
+    else:
+        # The initial guess for the square root will be HALF of 'a' (rounded down)
+        x = int(a/2)
 
-    # FIX THIS: input of "1" gives error: "ZeroDivisionError: float division by zero"...
-    # line 34, in my_sqrt
-    #   y = (x + a/x) / 2
-
-    # The initial guess for the square root will be HALF of 'a' (rounded down)
-    x = int(a/2)
-
-    while True:
-        y = (x + a/x) / 2
-        if abs(y-x) < sys.float_info.epsilon: # epsilon is 0.0000001
-            return x   # if the difference between y and x is less than epsilon, return x
-        x = y
-
-# collect_input()
+        while True:
+            y = (x + a/x) / 2
+            if abs(y-x) < sys.float_info.epsilon: # epsilon is 0.0000001
+                return x   # if the difference between y and x is less than epsilon, return x
+            x = y
 
 
 def test_square_root():
@@ -56,15 +54,14 @@ def test_square_root():
         mathSqrt_value = math.sqrt(float(element))
 
         # Move this to AFTER the calculations
-        diff = mysqrt_value - mathSqrt_value
+        diff = mathSqrt_value - mysqrt_value
 
         # FIRST: print the 'a' value
         # SECOND: print mysqrt(a) value
         # THIRD: print math.sqrt(a) value
         # FOURTH: print the difference between the previous 2
         print ("{:<4} {:<14} {:<14} {:<14}".format(float(element),round(mysqrt_value,11),round(mathSqrt_value,11),diff))
+    print()
 
-    # scaffolding - REMOVE later
-    return data
 
-print(test_square_root())
+test_square_root()
