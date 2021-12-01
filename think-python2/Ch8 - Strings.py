@@ -66,4 +66,14 @@ print(word[:]) # this prints the whole word
 new_word = 'Squid' + word[4:] # take everything BUT omit the 1st letter, add 'T' in front
 print(new_word)
 
-# LEFT OFF ON 8.6 - PDF page 96
+# 8.6 Exercise - add 'index' to 'find' parameters
+
+def find(word, letter, index):
+    i = index
+    while i < len(word):
+        if word[i] == letter:
+            return i
+        i = i + 1
+    return -1
+
+# 8.7 Exercisesawc
