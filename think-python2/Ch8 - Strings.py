@@ -65,15 +65,36 @@ print(word[:]) # this prints the whole word
 
 new_word = 'Squid' + word[4:] # take everything BUT omit the 1st letter, add 'T' in front
 print(new_word)
+print()
 
 # 8.6 Exercise - add 'index' to 'find' parameters
 
 def find(word, letter, index):
-    i = index
-    while i < len(word):
-        if word[i] == letter:
+    i = index   # Specifying the index at which the program starts looking
+    while i < len(word):    # So if you start at index 2 for the word 'star',
+        if word[i] == letter:   # the program will only search the letters 'a' and 'r'.
             return i
         i = i + 1
     return -1
 
-# 8.7 Exercisesawc
+print(find('can','a',2))
+print()
+
+# 8.7 Exercises
+
+# this counts the number of times a letter appears
+def count(word,letter):
+    count = 0
+    for letter in word:
+        if letter == 'a':
+            count+= 1
+    return count
+
+print(count('banana','a'))
+
+# This counts the number of times a letter appears starting at a certain index
+def count2(word, letter, index):
+    find(word, letter, index)
+
+
+# Left off at 8.8
