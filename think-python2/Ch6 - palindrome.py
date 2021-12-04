@@ -5,6 +5,7 @@ def last(word):
     return word[-1]
 
 def middle(word):
+    print(word[1:-1])
     return word[1:-1]
 
 def is_palindrome(word):
@@ -16,5 +17,5 @@ def is_palindrome(word):
     return is_palindrome(middle(word))
         
 
-print(is_palindrome("Prevent"))
-print(is_palindrome("otto"))
+# print(is_palindrome("Prevent"))
+print(is_palindrome("pottop"))

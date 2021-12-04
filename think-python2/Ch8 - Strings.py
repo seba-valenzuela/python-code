@@ -91,10 +91,61 @@ def count(word,letter):
     return count
 
 print(count('banana','a'))
+print()
 
 # This counts the number of times a letter appears starting at a certain index
 def count2(word, letter, index):
     find(word, letter, index)
 
 
-# Left off at 8.8
+# 8.8 String Methods
+
+word = 'word'
+print(word)
+print(word.upper())
+print()
+
+name = 'barbara'    # 'find' method is flawed
+print(name.find('ar'))  # here it returns 1
+print()
+
+banana = 'banana'
+print(banana.find('na')) # here it returns 2
+print() # So maybe it looks for CONSECUTIVE results
+# find can also take arguments that indicate where to start and stop (index)
+
+# 8.9 - the 'in' operator
+
+def in_both(word1, word2): # this compares the 1st word ONTO the 2nd
+    for letter in word1:
+        if letter in word2:
+            print(letter)
+
+in_both('carlos','sebastian')
+print()
+
+# 8.10 - String Comparison
+
+# An example of how Python puts Capital letters before lowercase
+if 'Cucumber' < banana:
+    print('The word, ' + banana + ', comes after Cucumber.')
+    print()
+
+# 8.11 - Fix this function
+
+def is_reverse(word1,word2):
+    if len(word1) != len(word2):
+        return False
+    
+    i = 0
+    j = len(word2) - 1 # correction 1: the reverse index is length - 1
+
+    while j >= 0: # correction 2: if J never equals 0, it will never get to the 1st letter
+        print(i,j)
+        if word1[i] != word2[j]:
+            return False
+        i += 1
+        j -= 1
+
+is_reverse('stop','pots')
+print()
