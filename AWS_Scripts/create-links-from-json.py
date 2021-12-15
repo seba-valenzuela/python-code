@@ -1,6 +1,8 @@
 import boto3
 import json
 
+# At the moment, this can ONLY be run on Sebastian's Laptop
+
 # This program creates a json file
 # with temporary URLs for bucket objects, organized by folder
 # For use with javascript that generates links to bucket objects for website
@@ -43,7 +45,7 @@ for i in response['Contents']:
         # url_oldway = s3.generate_presigned_url('get_object', Params={'Bucket':'sebavalenzuela.com', 'Key':i['Key']}, ExpiresIn=3600)
 
         # Replace spaces in filename with "_" for URL
-        filename_noSpaces = filename.replace(" ", "_")
+        filename_noSpaces = filename.replace(" ", "+")
         # Create URL
         url = "https://s3.amazonaws.com/sebavalenzuela.com/band-music/%s/%s" % (dir.lower(), filename_noSpaces)
 
@@ -57,5 +59,5 @@ for i in response['Contents']:
 
 # Dump content of 'url_json' directory to 'urls.json' file
 # if it already exists, overwrite it
-with open('/Users/svalenzuela/Documents/seba_code/python/url_list.json', mode='w') as outfile:
+with open('/Users/svalenzuela/Documents/seba_code/HTML/seba_web/url_list.json', mode='w') as outfile:
     json.dump(url_json, outfile)
