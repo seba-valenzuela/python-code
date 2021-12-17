@@ -2,6 +2,7 @@ import boto3
 import json
 
 # At the moment, this can ONLY be run on Sebastian's Laptop
+# To Do: make this run in AWS Lambda
 
 # This program creates a json file
 # with temporary URLs for bucket objects, organized by folder
