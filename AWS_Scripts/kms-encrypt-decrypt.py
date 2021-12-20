@@ -7,7 +7,7 @@ from pprint import pprint
 def main(argv):
 
     # create a session to retrieve 'admin' credentials from ~/.aws/credentials
-    # session is a class, youre creating a class called "session"
+    # session is a class, you're creating a class called "session"
     session = boto3.Session(profile_name='admin')
 
     # create a client with KMS
@@ -21,19 +21,38 @@ def main(argv):
     )
 
     # Extract just the plaintext key
-    plaintext_key = data_key["Plaintext"]
+    plaintext_key = data_key['Plaintext']
 
-    print('')
-    pprint(data_key)
-    print('')
-    print('')
-    print(str(plaintext_key))
-    print('')
-    print('')
-    # takes the 1st argument of the list
-    print(argv[0])
-    print('')
-    print('')
+    # Extract just the Cyphertext Key
+    cyphertext_key = data_key['CiphertextBlob']
+
+    # The plaintext file to be encrypted - REFERENCE A FILE
+    secret = ''
+
+    # plaintext_key decoded to base64
+    plaintext_key_base64 = ''
+
+    # cyphertext_key decoded to base64
+    cyphertext_key_base64 = ''
+
+    # decrypted cyphertext_key
+    decrypted_ciphertext_key = ''
+
+    print('\nThe plaintext, before encryption: \n')
+    print(secret+'\n')
+    print('The encrypted plaintext: \n')
+    
+    # TO DO:
+    # 1. Create a plaintext_secret.txt file and save its contents to 'secret' variable
+    # 2. Decode 'plaintext_key' using base64, save result to 'plaintext_key_base64'
+    # 3. Decode 'cyphertext_key' using base64, save result to 'cyphertext_key_base64'
+    # 4. Use the 'plaintext_key_base64' to encrypt the secrets FILE (install/use openSSL) and save an ENCRYPTED file version
+    # 5. Print contents of ENCRYPTED secrets file
+    # 6. Delete (zero-out) the 'plaintext_key_base64', 'plaintext_key', and secrets file
+    # 7. Call aws kms decrypt to decrypt the encrypted 'cyphertext_key_base64' and save that to 'decrypted_ciphertext_key'
+    # 8. Decode 'decrypted_ciphertext_key' using base64, save it to 'plaintext_key_base64'
+    # 9. Decrypt the ENCRYPTED secrets file using 'decrypted_ciphertext_key' and save to file secrets_decrypted.txt
+    # 10. Print contents of secrets_decrypted.txt
 
 
 # Execute this code only if you're running this program stand-alone,
