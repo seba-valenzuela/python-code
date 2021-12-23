@@ -28,7 +28,7 @@ for i in response['Contents']:
         full_path = i['Key']
         # this retrieves the folder after 'band-music/'
         dir = full_path.split("/")[1]
-        # capitalize the directory name, updat variable
+        # capitalize the directory name, update variable
         dir = dir.capitalize()
         # this retrieves the file name
         filename = full_path.split("/")[2]
