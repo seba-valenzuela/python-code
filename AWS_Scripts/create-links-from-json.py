@@ -1,8 +1,7 @@
-import boto3
 import json
+import boto3
 
-# At the moment, this can ONLY be run on Sebastian's Laptop
-# To Do: make this run in AWS Lambda
+# This is ONLY meant be run on Sebastian's Laptop (where AWS creds are stored)
 
 # This program creates a json file
 # with temporary URLs for bucket objects, organized by folder
@@ -58,7 +57,7 @@ for i in response['Contents']:
         # whose key is the last directory in 'folder_list'
         url_json[folder_list[-1]].append(object_dict)
 
-# Dump content of 'url_json' directory to 'urls.json' file
+# Dump content of 'url_json' to 'url_list.json' on local computer
 # if it already exists, overwrite it
 with open('/Users/svalenzuela/Documents/seba_code/HTML/seba_web/url_list.json', mode='w') as outfile:
     json.dump(url_json, outfile)

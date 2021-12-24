@@ -1,16 +1,12 @@
 import boto3
 import json
-import pprint
 
 # This program creates a json file
 # with temporary URLs for bucket objects, organized by folder
 # For use with javascript that generates links to bucket objects for website
 
-# create a session to retrieve 'admin' credentials from ~/.aws/credentials
-session = boto3.Session(profile_name='admin')
-
-# use your credentials to create a low-level client with the s3 service
-s3 = session.client('s3')
+# Create S3 service object that you can use to call S3 methods
+s3 = boto3.resource('s3')
 
 # Store dictionary of objects from bucket that starts with the prefix 'band-music'
 response = s3.list_objects_v2(Bucket='sebavalenzuela.com', Prefix='band-music')
@@ -40,9 +36,23 @@ for i in response['Contents']:
             folder_list.append(dir)
             url_json[folder_list[-1]] = []
 
-        # generate a temporary URL for the current bucket object
-        url = s3.generate_presigned_url('get_object', Params={'Bucket':'sebavalenzuela.com', 'Key':i['Key']}, ExpiresIn=3600)
+        # Replace spaces in filename with "_" for URL
+        filename_noSpaces = filename.replace(" ", "+")
+        # Create URL
+        url = "https://s3.amazonaws.com/sebavalenzuela.com/band-music/%s/%s" % (dir.lower(), filename_noSpaces)
+
+        # create a dictionary for each bucket object
+        # store the object's name (Key) and URL (value)
+        object_dict = {filename_noSpaces:url}
 
         # Append the newly created URL to a list in the 'url_json' dictionary,
         # whose key is the last directory in 'folder_list'
-        url_json[folder_list[-1]].append(url)
+        url_json[folder_list[-1]].append(object_dict)
+
+## Create s3object, specify bucket name and new file name
+s3object = s3.Object('sebavalenzuela.com', 'url_list.json')
+
+# Create a JSON file and PUT it in the s3object
+s3object.put(
+    Body=(bytes(json.dumps(url_json).encode('UTF-8')))
+)
