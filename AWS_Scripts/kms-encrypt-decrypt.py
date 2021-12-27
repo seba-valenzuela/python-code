@@ -1,5 +1,8 @@
 import boto3
 import sys
+import base64
+# pip install cryptography
+from cryptography.fernet import Fernet
 # for pretty printing
 from pprint import pprint
 
@@ -20,29 +23,53 @@ def main(argv):
         KeySpec='AES_256',
     )
 
-    # Extract just the plaintext key
-    plaintext_key = data_key['Plaintext']
+    # Extract just the plaintext key (Note: it comes encoded in base64)
+    plaintext_key = base64.b64encode(data_key['Plaintext'])
 
-    # Extract just the Cyphertext Key
+    # Extract just the Cyphertext Key (Note: it comes encoded in base64)
     cyphertext_key = data_key['CiphertextBlob']
 
-    # The plaintext file to be encrypted - REFERENCE A FILE
-    secret = ''
-
-    # plaintext_key decoded to base64
-    plaintext_key_base64 = ''
-
-    # cyphertext_key decoded to base64
-    cyphertext_key_base64 = ''
-
-    # decrypted cyphertext_key
-    decrypted_ciphertext_key = ''
-
+    # Print the plaintext file to the console
+    file = open("secret_4encryption.txt", "r")
+    secret = file.read()
     print('\nThe plaintext, before encryption: \n')
     print(secret+'\n')
+
+    # # plaintext_key decoded from base64
+    # plaintext_key_base64 = base64.b64decode(plaintext_key)
+
+    # # cyphertext_key decoded from base64
+    # cyphertext_key_base64 = base64.b64decode(cyphertext_key)
+
+    # Overwrite the old file with an encrypted version of the file
+    plaintext_key_fernet = Fernet(plaintext_key)
+    with open("secret_4encryption.txt", "w") as encrypted_secret:
+        encrypted_secret.write(plaintext_key_fernet.encrypt(secret))
+
+    # print the encrypted version of the file
     print('The encrypted plaintext: \n')
+    print(encrypted_secret+'\n')
+
+    # Discard the plaintext key
+    plaintext_key = ''
+    plaintext_key_fernet = ''
+
+    # decrypt the cyphertext_key with KMS call
+    response = kms.decrypt(CiphertextBlob=cyphertext_key)
+    decrypted_ciphertext_key = base64.b64encode((response['Plaintext']))
+
+    # use decrypted cyphertext key to decrypt encrypted message
+    cyphertext_key_fernet = Fernet(decrypted_ciphertext_key)
+    decrypted_file_contents = cyphertext_key_fernet.decrypt(encrypted_secret)
+
+    # Write a new file, add contents, and print to console
+    decrypted_file = open("decrypted_secret.rtf", "w")
+    decrypted_file.write(decrypted_file_contents)
+    print(decrypted_file.read())
+
     
-    # TO DO:
+    
+    # Steps for Encrypt/Decrypt of a text file:
     # 1. Create a plaintext_secret.txt file and save its contents to 'secret' variable
     # 2. Decode 'plaintext_key' using base64, save result to 'plaintext_key_base64'
     # 3. Decode 'cyphertext_key' using base64, save result to 'cyphertext_key_base64'
