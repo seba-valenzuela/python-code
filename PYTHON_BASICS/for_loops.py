@@ -15,3 +15,9 @@ array = []
 for i in range(5):
     array.append(i)
 print(*array) # <-- single line!
+
+print()
+
+# Single line for loop
+new_array = []
+print(new_array.append(i) for i in range(3))
