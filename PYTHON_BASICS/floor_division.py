@@ -21,3 +21,12 @@ print(3//5) # 0
 print(3//6) # 0
 print(3//7) # 0
 print(3//8) # 0
+
+print()
+
+# I have 10 spaces to fill. How many times will 'abc' fit into 10 spaces?
+
+chars = 'abc'
+print(10 // len(chars)) # 3 times
+
+# How would I get the remainder letters? Use MODULO!

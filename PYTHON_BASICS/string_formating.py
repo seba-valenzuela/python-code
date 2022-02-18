@@ -15,3 +15,5 @@ name = "seba"
 print(name[1])
 print(len(name))
 print()
+
+# Counting the Characters in a string
