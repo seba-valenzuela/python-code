@@ -14,6 +14,7 @@ print()
 array = []
 for i in range(5):
     array.append(i)
+print('Here is your array, with range(5): ')
 print(*array) # <-- single line!
 
 print()
