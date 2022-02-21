@@ -1,6 +1,7 @@
 # HackerRank question: Circular Printer
 # Assuming the shortest direction from one letter to the next, and each step takes 1 second,
 # How many seconds would it take to print out a word?
+# Code by Sebastian Valenzuela
 
 alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 

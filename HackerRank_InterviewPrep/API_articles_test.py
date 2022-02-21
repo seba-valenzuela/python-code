@@ -1,5 +1,4 @@
 #!/bin/python3
-# Code by Sebastian Valenzuela
 
 from asyncio.windows_events import NULL
 import math
@@ -10,6 +9,7 @@ import sys
 from urllib import request
 import requests
 
+#
 # Complete the 'topArticles' function below.
 #
 # The function is expected to return a STRING_ARRAY.
@@ -32,6 +32,7 @@ def topArticles(limit):
 
     # Search each page
     while page <= total_pages: # so you're not searching pages with no data
+        
         # create dictionary with all entries
         for article in data:
             # if the 'num_comments' section is not null, add this value to an array
@@ -39,28 +40,40 @@ def topArticles(limit):
                 # save the num_comments value tied with a unique ID ('created_at')
                 top_article_comments.update({article['num_comments']:article['created_at']})
         page += 1
+    
+    print(top_article_comments)
 
     # Sort from HIGHEST to LOWEST number of comments
     sorted_comments = sorted(top_article_comments.items(), reverse=True)
+    print(sorted_comments)
     
     # get the top [limit] number of comments
     top_comments_final = sorted_comments[:limit]
+    print(top_comments_final)
 
     # store the unique IDs of these top comments
     created_by_IDs = [item[1] for item in top_comments_final]
+    print(created_by_IDs)
 
     # Get a string of Article Names
-    for article in data:
-        # if 'created_at' is an item in our list
-        if article['created_at'] in created_by_IDs:
-            # if the title field is not null, use 'title'
-            if article['title'] is not None:
-                # add it to final list, at the index position of the 'created_at' list
-                article_names.insert(created_by_IDs.index(article['created_at']),article['title'])
-            # else, if the 'story_title' field is not null, use 'story_title'
-            elif article['story_title'] is not None:
-                # add it to final list, at the index position of the 'created_at' list
-                article_names.insert(created_by_IDs.index(article['created_at']),article['story_title'])
+    page = 1
+    # Search each page
+    # while page <= total_pages:
+        for article in data:
+            # if 'created_at' is an item in our list
+            if article['created_at'] in created_by_IDs:
+                # if the title field is not null, use 'title'
+                if article['title'] is not None:
+                    # add it to final list
+                    # article_names.append(article['title'])
+                    article_names.insert(created_by_IDs.index(article['created_at']),article['title'])
+                # else, if the 'story_title' field is not null, use 'story_title'
+                elif article['story_title'] is not None:
+                    # article_names.append(article['story_title'])
+                    article_names.insert(created_by_IDs.index(article['created_at']),article['story_title'])
+                # else:
+                #     print('ignore article') # if both fields are null, ignore the article
+        # page += 1
     return article_names
 
-print(topArticles(3))
+print(topArticles(5))
