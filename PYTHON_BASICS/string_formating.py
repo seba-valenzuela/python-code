@@ -1,4 +1,7 @@
 # New Line: \n
+from traceback import print_tb
+
+
 print("Hear \nme \nNOW!")
 print()
 
@@ -16,4 +19,9 @@ print(name[1])
 print(len(name))
 print()
 
-# Counting the Characters in a string
+# print every element in a list ON THE SAME LINE
+list = [1, 2, 3, 4, 5, 6]
+
+for i in list:
+    print(i, end='') # use end='' to keep the printed item on the same line
+print('\n')

@@ -36,3 +36,7 @@ print(url)
 print()
 
 print(url + '&page=2')
+print()
+
+split = list(team)
+print(split)
