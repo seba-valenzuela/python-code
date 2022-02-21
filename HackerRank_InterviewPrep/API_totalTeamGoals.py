@@ -22,16 +22,16 @@ def getTotalGoals(team, year):
         # If there is only 1 page do this, else - increment through pages
         if totalPages == 1:
             # increment through all matches, adding their goals up
-            for user in data:
-                total_goals += int(user['team' + str(team_side) + 'goals'])
+            for match in data:
+                total_goals += int(match['team' + str(team_side) + 'goals'])
         
         else:
             # Loop from page 1 to the last page
             for page in range(1, totalPages+1):
                 r_team = requests.get(url + '&page=' + page)
                 # On each page, add up goals from each match
-                for user in data:
-                    total_goals += user['team' + team + 'goals']
+                for match in data:
+                    total_goals += match['team' + team + 'goals']
         team_side += 1
     return total_goals
 
