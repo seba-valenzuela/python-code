@@ -33,8 +33,6 @@ def check_distance(alpha,a,b):
             while start_letter > end_letter:
                 start_letter -= 1
                 distanceLeft += 1
-    print('The distance to the LEFT from '+ a +' to '+ b +' is: '+str(distanceLeft))
-
 
     # Count the distance towards the RIGHT of the array
     start_letter = alpha.index(a) # reset
@@ -56,10 +54,8 @@ def check_distance(alpha,a,b):
             while start_letter < end_letter:
                 start_letter += 1
                 distanceRight += 1
-    print('The distance to the RIGHT is: '+ a +' to '+ b +' is: '+str(distanceRight))
 
     return min(distanceLeft, distanceRight)
-
 
 
 def count_Seconds(alpha, input):
@@ -71,7 +67,25 @@ def count_Seconds(alpha, input):
         total_seconds += check_distance(alpha, letter_list[i], letter_list[i+1])
     return total_seconds
 
+# Test difference scenarios
 
-input = 'SEBA'
+# 1. Same letter
+input = 'AAA' # 0 seconds
 print(count_Seconds(alphabet, input))
-    
+
+input = 'AAAA' # 0 seconds
+print(count_Seconds(alphabet, input))
+
+# 2. Sequential letters
+input = 'ABCD' # 3 seconds
+print(count_Seconds(alphabet, input))
+
+input = 'DCBA' # 3 seconds
+print(count_Seconds(alphabet, input))
+
+# 3. Short names
+input = 'SEBA' # 16 seconds
+print(count_Seconds(alphabet, input))
+
+input = 'JESS' # 17 seconds
+print(count_Seconds(alphabet, input))

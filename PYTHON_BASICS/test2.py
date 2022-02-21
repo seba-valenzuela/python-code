@@ -7,3 +7,16 @@ print(positive)
 
 negative = alphabet[char_index-26]
 print(negative)
+
+print(alphabet[-24])
+print()
+
+letter_list = ['S', 'E', 'B', 'A']
+
+length = len(letter_list)
+
+for i in range(length-1):
+    print(i, end='')
+    print(i+1)
+
+print()
