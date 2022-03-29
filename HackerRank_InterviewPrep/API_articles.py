@@ -63,4 +63,4 @@ def topArticles(limit):
                 article_names.insert(created_by_IDs.index(article['created_at']),article['story_title'])
     return article_names
 
-print(topArticles(3))
+print(topArticles(5))
