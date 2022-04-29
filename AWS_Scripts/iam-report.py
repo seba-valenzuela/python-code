@@ -48,6 +48,8 @@ def get_cred_report():
                 report.append(row)
             return report
 
+print("\nOne moment while I retrieve the information...\n")
+
 # Store the output of this function in report
 report = get_cred_report()
 
