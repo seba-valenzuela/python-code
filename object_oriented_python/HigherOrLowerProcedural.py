@@ -1,3 +1,5 @@
+# This is the 1st example from Object Oriented Python book
+
 import random
 
 SUIT_TUPLE = ('Spades', 'Hearts', 'Clubs', 'Diamonds')
