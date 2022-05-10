@@ -25,3 +25,11 @@ print(diff_sec)
 # time.sleep(3)
 # print(secret.get_Age())
 # print()
+
+print("   ** View a Secret **")
+print("Type 'r' to look up by Ref. Number,")
+action2 = input("or 'u' to look up by Username:")
+action2 = action2.lower() # force lowercase
+action2 = action2[0] # select only the 1st character
+if action2 != 'r' or 'u':
+    print("   Wrong option, try again.")

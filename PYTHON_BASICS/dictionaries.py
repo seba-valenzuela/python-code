@@ -27,3 +27,22 @@ print()
 # try to access item with key 2:
 print(list_of_names.get(2, "This is a custom error message!"))
 print()
+
+# check to see if a KEY exists in a DICTIONARY:
+key = 1
+if key in list_of_names.keys():
+    print("This key is in data")
+else:
+    print("NO")
+
+# (isinstance(key, int)) and 
+
+# more complicated check...
+if (key in list_of_names.keys()):
+    print("This IS an int, and its a key in ther dictionary")
+else:
+    print("didn't work")
+
+print()
+print(list_of_names.keys())
+print()

@@ -15,10 +15,12 @@ class secrets_manager():
 
     def set_Passwd(self, passwd):
         self.passwd = passwd
+        print()
         print("New password has been set for user:", self.user)
 
     def set_User(self, user):
         self.user = user
+        print()
         print("New username has been set.")
 
     def get_User(self):
@@ -33,6 +35,11 @@ class secrets_manager():
         self.passAge = int((present - past).total_seconds())
         return self.passAge
 
-    def view(self, user):
-        
+    def view(self, ref):
+        print()
+        print("Here is the information for that secret:")
+        print("   Ref. Number:", ref)
+        print("   User:", self.user)
+        print("   Password:", self.passwd)
+        print()
         
