@@ -3,9 +3,13 @@ import pytz
 from datetime import datetime, timedelta
 import time
 
+# define custom exception
+class AbortAction(Exception):
+    pass
+
 class secrets_manager():
     def __init__(self, user, passwd):
-        # Instance Variables: secret_user, secret_passwd, password_age
+        # Instance Variables:
         self.user = user
         self.passwd = passwd
         # "time_now" will de erased after initialization

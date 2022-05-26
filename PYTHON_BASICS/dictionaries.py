@@ -7,11 +7,11 @@ print(data.keys())
 print()
 
 # Print just the Keys:
-print(*data.keys()) # <--- The magic asterix! *
+print(*data.keys()) # <--- The magic asterix! * gets rid of everything except the data
 print()
 
 # Print just the Values:
-print(*data.values()) # <--- The magic asterix! *
+print(*data.values())
 print()
 
 # Lets test the integrity of keys when you remove an item...
