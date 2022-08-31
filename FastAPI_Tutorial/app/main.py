@@ -63,7 +63,7 @@ def get_post(id: int, response: Response): # error validation! if an integer is 
 def create_posts(new_post: Post): # Set 'new_post' equal to the data validated by the 'Post' pydantic model
     print(new_post.title) # access only the 'title' property
 
-    post_dict = new_post.dict() # turn the array into a dictionary
+    post_dict = new_post.dict() # turn the array into a dictionary; this way we can alter it
     post_dict['id'] = randrange(0, 1000) # add a new item to the dict: 'id': '<randInt>'
     my_posts.append(post_dict)
 
@@ -84,6 +84,7 @@ def delete_post(id: int):
 
 ### UPDATE operations (PUT, PATCH) ###
 
+# Update an entire post (must have all required fields)
 @app.put("/posts/{id}")
 def update_post(id: int, post: Post):
     index = find_index_post(id)
@@ -91,13 +92,9 @@ def update_post(id: int, post: Post):
     if index == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, 
                             detail=f"post with id '{id}' does not exist.")
-    print()
-    print(post)
+   
     post_dict = post.dict()
-    print()
-    print(post_dict)
-
-    post_dict['id'] = id
+    post_dict['id'] = id # this is necessary
     my_posts[index] = post_dict
-    return {'message': "updated post"}
+    return {'data': post_dict}
 
