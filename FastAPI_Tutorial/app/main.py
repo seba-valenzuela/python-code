@@ -62,7 +62,7 @@ def get_post(id: int, response: Response): # error validation! if an integer is 
 @app.post("/posts", status_code=status.HTTP_201_CREATED)
 def create_posts(new_post: Post): # Set 'new_post' equal to the data validated by the 'Post' pydantic model
     print(new_post.title) # access only the 'title' property
-
+    print(new_post)
     post_dict = new_post.dict() # turn the array into a dictionary; this way we can alter it
     post_dict['id'] = randrange(0, 1000) # add a new item to the dict: 'id': '<randInt>'
     my_posts.append(post_dict)
@@ -95,6 +95,6 @@ def update_post(id: int, post: Post):
    
     post_dict = post.dict()
     post_dict['id'] = id # this is necessary
-    my_posts[index] = post_dict
+    my_posts[index] = post_dict # replace the post at index __ with the new post
     return {'data': post_dict}
 
